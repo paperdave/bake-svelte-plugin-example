@@ -1,7 +1,7 @@
 # how to use
 
 hello framework authors and early adopters. this is a demonstration repo for
-using plugins in Bun DevServer. as of writing, you must be on 
+using plugins in Bun DevServer. as of writing, you must be on https://github.com/oven-sh/bun/pull/15467
 
 it uses a custom plugin to compile `.svelte` files
 
