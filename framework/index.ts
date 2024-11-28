@@ -40,12 +40,15 @@ export default function (): Bake.Framework {
             let jsCode = result.js.code;
             if (result.css) {
               cssMap.set(args.path, result.css.code);
-              jsCode = `import ${JSON.stringify("svelte-css:" + args.path)};` + jsCode;
+              jsCode =
+                `import ${JSON.stringify("svelte-css:" + args.path)};` + jsCode;
             }
             // Extract a "use client" directive from the file.
-            const header = contents.match(/^\s*<script.*?>\s*("[^"\n]*"|'[^'\n]*')/)?.[1];
+            const header = contents.match(
+              /^\s*<script.*?>\s*("[^"\n]*"|'[^'\n]*')/
+            )?.[1];
             if (header) {
-              jsCode = header + ';' + jsCode;
+              jsCode = header + ";" + jsCode;
             }
             return {
               contents: jsCode,
@@ -55,7 +58,10 @@ export default function (): Bake.Framework {
 
           // Resolve CSS files
           b.onResolve({ filter: /^svelte-css:/ }, async (args) => {
-            return { path: args.path.replace(/^svelte-css:/, ""), namespace: "svelte-css" };
+            return {
+              path: args.path.replace(/^svelte-css:/, ""),
+              namespace: "svelte-css",
+            };
           });
           b.onLoad({ filter: /./, namespace: "svelte-css" }, async (args) => {
             return { contents: cssMap.get(args.path) ?? "", loader: "css" };
