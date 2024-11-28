@@ -1,0 +1,16 @@
+{
+  "name": "sample",
+  "dependencies": {
+    "devalue": "^5.1.1",
+    "elysia": "^1.1.23",
+    "svelte": "^5.2.9"
+  },
+  "main": "bun.app.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

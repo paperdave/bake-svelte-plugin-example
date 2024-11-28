@@ -1,0 +1,6 @@
+node_modules
+dist
+
+# when using bake's debugging features
+.bake-debug
+incremental-graph-crash-dump*.html
